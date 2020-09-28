@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -9,6 +9,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import * as Sentry from '@sentry/angular';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -16,8 +18,9 @@ import { AppComponent } from './app.component';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: ErrorHandler, useValue: Sentry.createErrorHandler(), },
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
