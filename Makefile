@@ -7,7 +7,7 @@ SENTRY_PROJECT=angular
 VERSION=`sentry-cli releases propose-version`
 SOURCEMAP_LOCATION?=www
 
-setup_release: build create_release associate_commits upload_sourcemaps
+setup_release: build create_release associate_commits deploy_ios
 
 create_release:
 	sentry-cli releases -o $(SENTRY_ORG) new -p $(SENTRY_PROJECT) $(VERSION)
@@ -17,7 +17,7 @@ associate_commits:
 
 upload_sourcemaps:
 	sentry-cli releases -o $(SENTRY_ORG) -p $(SENTRY_PROJECT) files \
-		$(VERSION) upload-sourcemaps --url-prefix "~/" --rewrite --validate $(SOURCEMAP_LOCATION)
+		$(VERSION) upload-sourcemaps --url-prefix $(URL_PREFIX) --rewrite --validate $(SOURCEMAP_LOCATION)
 
 
 # Deploy targets
@@ -31,6 +31,5 @@ deploy_android:
 	npm run build && \
 		URL_PREFIX="http://localhost/" make upload_sourcemaps
 
-deploy_ios: create_env
-	npm run build && \
+deploy_ios:
 		URL_PREFIX="capacitor://localhost/" make upload_sourcemaps
