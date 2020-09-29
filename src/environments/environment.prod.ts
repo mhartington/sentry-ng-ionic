@@ -1,4 +1,4 @@
 export const environment = {
    production: true,
-   release: '1d7a0056d312bf72f9715406b98b8e207c0f4088'
+   release: '67842cb51e5b0433b89b3b12c02faed9a8b58560'
 };
