@@ -7,13 +7,12 @@ import * as Sentry from "@sentry/angular";
 
 Sentry.init({
   dsn: "https://fb0f256de02644daa0bfe50e3db3e9d0@o437425.ingest.sentry.io/5400008",
-  release: 'be1a51a855d00371769f14fbb4b5d560a60b664f'
+  release: environment.release,
 });
 const PATH_STRIP_RE = /(http|capacitor):\/\/localhost/;
 function normalizeUrl(url: string, pathStripRe: RegExp): string {
     return url.replace(pathStripRe, '');
 }
-
 Sentry.addGlobalEventProcessor((data: any) => {
   if (data.culprit) {
     data.culprit = normalizeUrl(data.culprit, PATH_STRIP_RE);
@@ -36,6 +35,7 @@ Sentry.addGlobalEventProcessor((data: any) => {
   console.log(data);
   return data;
 });
+
 if (environment.production) {
   enableProdMode();
 }
