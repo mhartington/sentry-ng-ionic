@@ -5,7 +5,7 @@
   "npmClient": "npm",
   "webDir": "www",
   "server": {
-    "iosScheme": "app"
+
   },
   "plugins": {
     "SplashScreen": {

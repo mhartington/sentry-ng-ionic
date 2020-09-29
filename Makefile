@@ -6,7 +6,7 @@ SENTRY_ORG=mike-hartington
 SENTRY_PROJECT=angular
 VERSION=`sentry-cli releases propose-version`
 SOURCEMAP_LOCATION?=www
-
+URL_PREFIX=~/
 setup_release: build create_release associate_commits
 
 create_release:
@@ -28,7 +28,7 @@ build:
 		make upload_sourcemaps
 
 deploy_web: setup_release
-		URL_PREFIX="~/." make upload_sourcemaps
+		make upload_sourcemaps
 
 deploy_android:setup_release
 		URL_PREFIX="http://localhost/" make upload_sourcemaps
