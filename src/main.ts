@@ -3,7 +3,7 @@ import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 
 import { AppModule } from "./app/app.module";
 import { environment } from "./environments/environment";
-import * as Sentry from "sentry-cordova";
+import * as Sentry from "@sentry/angular";
 
 Sentry.init({
   dsn: "https://fb0f256de02644daa0bfe50e3db3e9d0@o437425.ingest.sentry.io/5400008",
