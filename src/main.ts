@@ -14,7 +14,7 @@ function normalizeUrl(url: string, pathStripRe: RegExp): string {
   return `app://${url.replace(/^file\:\/\//, '').replace(pathStripRe, '')}`;
 }
 
-// Sentry.addGlobalEventProcessor((data:any) => {
+Sentry.addGlobalEventProcessor((data:any) => {
 // if (data.culprit) {
 //     data.culprit = normalizeUrl(data.culprit, PATH_STRIP_RE);
 //   }
@@ -27,9 +27,9 @@ function normalizeUrl(url: string, pathStripRe: RegExp): string {
 //       }
 //     });
 //   }
-//   console.log(data)
-//   return data;
-// })
+  console.log(data)
+  return data;
+})
 if (environment.production) {
   enableProdMode();
 }
