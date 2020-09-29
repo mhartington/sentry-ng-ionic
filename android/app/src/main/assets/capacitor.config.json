@@ -4,9 +4,7 @@
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
-  "server": {
-    "iosScheme": "app"
-  },
+  "server": {},
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0

@@ -30,6 +30,7 @@
     "@sentry/cli": "^1.58.0",
     "@sentry/tracing": "^5.24.2",
     "rxjs": "~6.5.5",
+    "sentry-cordova": "^0.17.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
   },
