@@ -28,7 +28,7 @@ build:
 		make upload_sourcemaps
 
 deploy_web: setup_release
-		URL_PREFIX="~/" make upload_sourcemaps
+		URL_PREFIX="~/." make upload_sourcemaps
 
 deploy_android:setup_release
 		URL_PREFIX="http://localhost/" make upload_sourcemaps
