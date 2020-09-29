@@ -7,6 +7,7 @@ import * as Sentry from "@sentry/angular";
 
 Sentry.init({
   dsn: "https://fb0f256de02644daa0bfe50e3db3e9d0@o437425.ingest.sentry.io/5400008",
+  release: 'cf82389b925ce2c49c7dab2926010019a31919a0'
 });
 const PATH_STRIP_RE = /(http|capacitor):\/\/localhost/;
 function normalizeUrl(url: string, pathStripRe: RegExp): string {

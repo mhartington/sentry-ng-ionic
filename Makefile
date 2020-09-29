@@ -16,7 +16,7 @@ associate_commits:
 
 upload_sourcemaps:
 	sentry-cli releases -o $(SENTRY_ORG) -p $(SENTRY_PROJECT) files \
-		$(VERSION) upload-sourcemaps --url-rewrte $(URL_PREFIX)  --rewrite --validate $(SOURCEMAP_LOCATION)
+		$(VERSION) upload-sourcemaps   --rewrite --validate $(SOURCEMAP_LOCATION)
 
 
 # Deploy targets
