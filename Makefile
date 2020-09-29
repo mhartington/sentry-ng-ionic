@@ -16,7 +16,7 @@ associate_commits:
 
 upload_sourcemaps:
 	sentry-cli releases -o $(SENTRY_ORG) -p $(SENTRY_PROJECT) files \
-		$(VERSION) upload-sourcemaps  --rewrite --validate $(SOURCEMAP_LOCATION)
+		$(VERSION) upload-sourcemaps --url-rewrte $(URL_PREFIX)  --rewrite --validate $(SOURCEMAP_LOCATION)
 
 
 # Deploy targets
@@ -33,4 +33,4 @@ deploy_android:setup_release
 		URL_PREFIX="http://localhost/" make upload_sourcemaps
 
 deploy_ios:setup_release
-	URL_PREFIX="app://" make upload_sourcemaps
+	URL_PREFIX="capacitor:/localhost/" make upload_sourcemaps
