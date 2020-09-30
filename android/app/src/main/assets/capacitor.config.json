@@ -5,8 +5,8 @@
   "npmClient": "npm",
   "webDir": "www",
   "server": {
-      "androidScheme": "capacitor"
-  },
+        "androidScheme": "capacitor"
+},
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0
